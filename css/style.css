@@ -14,5 +14,8 @@ body{
     height: 800px;
 }
 .half-style{
-    transform: translate(-50%,-340px)!important;
+    transform: translate(-50%,-340px);
+}
+.mt-400{
+    margin-top: 400px;
 }
