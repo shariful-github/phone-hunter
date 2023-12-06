@@ -19,3 +19,9 @@ body{
 .mt-400{
     margin-top: 400px;
 }
+.w-200{
+    width: 200px;    
+}
+.h-350{
+    height: 350px;    
+}
