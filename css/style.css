@@ -8,5 +8,11 @@ body{
     max-width: 800px;
 }
 .width-650{
-    width: 650px;
+    max-width: 650px;
+}
+.height-full{
+    height: 800px;
+}
+.half-style{
+    transform: translate(-50%,-340px)!important;
 }
