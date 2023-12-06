@@ -1,0 +1,12 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.title-font{
+    font-size: 60px;
+}
+.width-800{
+    max-width: 800px;
+}
+.width-650{
+    width: 650px;
+}
