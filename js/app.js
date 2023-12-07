@@ -38,5 +38,11 @@ document.getElementById('btn-search').addEventListener('click', function(){
     loadPhones(searchText);
 })
 
+document.getElementById('search-field').addEventListener('keypress', function(event){
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        document.getElementById('btn-search').click();
+    }
+})
 
 loadPhones('iphone');
