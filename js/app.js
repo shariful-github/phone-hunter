@@ -34,9 +34,11 @@ const displayPhones = (data) =>{
         `;
         phonesContainer.appendChild(phoneDiv);
     })
+    toggleSpinner(false);
 }
 // Fetch API=======================
 const loadPhones = async (searchKey) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchKey}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -56,5 +58,14 @@ document.getElementById('search-field').addEventListener('keypress', function(ev
         document.getElementById('btn-search').click();
     }
 })
-
+// Spinner=========================
+function toggleSpinner(isLoading){
+    const spinner = document.getElementById('spinner');
+    if(isLoading){
+        spinner.classList.remove('d-none');
+    }
+    else{
+        spinner.classList.add('d-none');
+    }
+}
 loadPhones('iphone');
