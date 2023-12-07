@@ -1,13 +1,18 @@
+// Display Phones===================
 const displayPhones = (data) =>{
     let phones = data.data;
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.textContent = '';
     const notFoundDiv = document.getElementById('not-found-div');
+    const btnShowAll = document.getElementById('btn-show-all');
+    // No Phone Found Message
     if(data.status === true){
         notFoundDiv.classList.add('d-none');
+        btnShowAll.classList.remove('d-none');
     }
     else{
         notFoundDiv.classList.remove('d-none');
+        btnShowAll.classList.add('d-none');
     }
     phones.forEach(phone =>{
         const phoneDiv = document.createElement('div');
@@ -30,21 +35,21 @@ const displayPhones = (data) =>{
         phonesContainer.appendChild(phoneDiv);
     })
 }
-
+// Fetch API=======================
 const loadPhones = async (searchKey) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchKey}`;
     const res = await fetch(url);
     const data = await res.json();
     displayPhones(data);
 }
-
+// Search Button Handle============
 document.getElementById('btn-search').addEventListener('click', function(){
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     searchField.value = '';
     loadPhones(searchText);
 })
-
+// Enter Key Event Listener===========
 document.getElementById('search-field').addEventListener('keypress', function(event){
     if(event.key === 'Enter'){
         event.preventDefault();
