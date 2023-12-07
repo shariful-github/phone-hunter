@@ -6,9 +6,9 @@ const displayPhones = (phones) =>{
         phoneDiv.classList.add('col');
         phoneDiv.innerHTML = `
             <div class="card p-4">
-                <div class="bg-info bg-opacity-10 h-350 rounded rounded-3 d-flex justify-content-center align-items-center">
-                <div class="w-75">
-                    <img class="rounded rounded-4 w-100 img-img-fluid" src="${phone.image}" class="card-img-top" alt="...">
+                <div class="bg-info bg-opacity-10 h-90vh rounded rounded-3 d-flex justify-content-center align-items-center">
+                <div class="w-75 h-75">
+                    <img class="rounded rounded-4 w-100 h-100" src="${phone.image}" class="card-img-top" alt="...">
                 </div>    
                 </div>
                 <div class="card-body text-center">
