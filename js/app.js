@@ -1,7 +1,14 @@
-const displayPhones = (phones) =>{
-    // console.log(phones);
+const displayPhones = (data) =>{
+    let phones = data.data;
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.textContent = '';
+    const notFoundDiv = document.getElementById('not-found-div');
+    if(data.status === true){
+        notFoundDiv.classList.add('d-none');
+    }
+    else{
+        notFoundDiv.classList.remove('d-none');
+    }
     phones.forEach(phone =>{
         const phoneDiv = document.createElement('div');
         phoneDiv.classList.add('col');
@@ -10,7 +17,7 @@ const displayPhones = (phones) =>{
                 <div class="bg-info bg-opacity-10 h-90vh rounded rounded-3 d-flex justify-content-center align-items-center">
                 <div class="w-75 h-75">
                     <img class="rounded rounded-4 w-100 h-100" src="${phone.image}" class="card-img-top" alt="...">
-                </div>    
+                </div>
                 </div>
                 <div class="card-body text-center">
                     <h4 class="card-title fw-bold">${phone.phone_name}</h4>
@@ -28,7 +35,7 @@ const loadPhones = async (searchKey) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchKey}`;
     const res = await fetch(url);
     const data = await res.json();
-    displayPhones(data.data);
+    displayPhones(data);
 }
 
 document.getElementById('btn-search').addEventListener('click', function(){
