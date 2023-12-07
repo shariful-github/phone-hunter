@@ -1,11 +1,18 @@
+let data;
 // Display Phones===================
-const displayPhones = (data) =>{
+const displayPhones = (noOfPhones) =>{
     let phones = data.data;
+
+    if(noOfPhones === '12'){
+        phones = phones.slice(0, 12);
+    }
+
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.textContent = '';
+    
+    // No Phone Found Message & handle show all button
     const notFoundDiv = document.getElementById('not-found-div');
     const btnShowAll = document.getElementById('btn-show-all');
-    // No Phone Found Message
     if(data.status === true){
         notFoundDiv.classList.add('d-none');
         btnShowAll.classList.remove('d-none');
@@ -41,8 +48,8 @@ const loadPhones = async (searchKey) => {
     toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchKey}`;
     const res = await fetch(url);
-    const data = await res.json();
-    displayPhones(data);
+    data = await res.json();
+    displayPhones('12');
 }
 // Search Button Handle============
 document.getElementById('btn-search').addEventListener('click', function(){
@@ -68,4 +75,8 @@ function toggleSpinner(isLoading){
         spinner.classList.add('d-none');
     }
 }
+// show all button handle
+document.getElementById('btn-show-all').addEventListener('click', function(){
+    displayPhones('all');
+})
 loadPhones('iphone');
