@@ -67,18 +67,66 @@
         </div>
     </div>
     <!-- No Result GIF -->
-    <div id="not-found-div" class="text-center">
+    <div id="not-found-div" class="text-center d-none">
         <img src="images/no-result.gif" alt="">
     </div>
     <!-- Search Result -->
     <div id="phones-container" class="h-25 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 w-75 mx-auto">
-        
+
     </div>
     <!-- Show All button -->
-    <div id="btn-show-all" class="text-center my-5">
+    <div id="btn-show-all" class="text-center my-5 d-none">
         <button id="btn-show-all" class="btn btn-primary px-5 py-3 mt-2 fw-semibold">Show All</button>
     </div>
-    
+
+    <!-- Modal -->
+    <div class="modal fade" id="btn-show-details" tabindex="-1" aria-labelledby="btn-show-detailsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="btn-show-detailsLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <div
+                        class="h-200px bg-info bg-opacity-10 rounded rounded-3 d-flex justify-content-center align-items-center">
+                        <div class="w-25">
+                            <img id="modalImage" class="rounded rounded-4 w-100" src="" class="card-img-top" alt="...">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h6 class="mt-4"><span class="fw-bold">Storage: </span><span id="storage-element"
+                                class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">Display Size: </span><span id="display-size-element"
+                                class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">Chipset: </span><span id="chipset-element"
+                                class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">Memory: </span><span id="memory-element"
+                                class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">Sensor: </span><span id="sensors-element"
+                                class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">Brand: </span><span id="brand-element" class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">GPS: </span><span id="gps-element" class="text-secondary"></span></h6>
+
+                        <h6 class="mt-4"><span class="fw-bold">Release Date: </span><span id="date-element" class="text-secondary"></span></h6>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- bootstrap script -->
