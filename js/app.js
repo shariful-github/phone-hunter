@@ -3,10 +3,6 @@ let data;
 const displayPhones = (noOfPhones) =>{
     let phones = data.data;
 
-    if(noOfPhones === '12'){
-        phones = phones.slice(0, 12);
-    }
-
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.textContent = '';
     
@@ -15,10 +11,15 @@ const displayPhones = (noOfPhones) =>{
     const btnShowAll = document.getElementById('btn-show-all');
     if(data.status === true){
         notFoundDiv.classList.add('d-none');
-        btnShowAll.classList.remove('d-none');
     }
     else{
         notFoundDiv.classList.remove('d-none');
+    }
+    if(noOfPhones === '12'){
+        phones = phones.slice(0, 12);
+        btnShowAll.classList.remove('d-none');
+    }
+    else{
         btnShowAll.classList.add('d-none');
     }
     phones.forEach(phone =>{
@@ -75,7 +76,7 @@ function toggleSpinner(isLoading){
         spinner.classList.add('d-none');
     }
 }
-// show all button handle
+// show all button handle==============
 document.getElementById('btn-show-all').addEventListener('click', function(){
     displayPhones('all');
 })
