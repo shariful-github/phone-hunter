@@ -10,18 +10,20 @@ const displayPhones = (noOfPhones) =>{
     const notFoundDiv = document.getElementById('not-found-div');
     const btnShowAll = document.getElementById('btn-show-all');
     if(data.status === true){
-        notFoundDiv.classList.add('d-none');
+        notFoundDiv.classList.add('d-none');//hide not found
+        if(noOfPhones === '12'){
+            phones = phones.slice(0, 12);
+            btnShowAll.classList.remove('d-none');//show 'show all' button
+        }
+        else{
+            btnShowAll.classList.add('d-none');//hide 'show all' button
+        }
     }
     else{
-        notFoundDiv.classList.remove('d-none');
+        notFoundDiv.classList.remove('d-none');//show Not found
+        btnShowAll.classList.add('d-none');//hide 'show all' button
     }
-    if(noOfPhones === '12'){
-        phones = phones.slice(0, 12);
-        btnShowAll.classList.remove('d-none');
-    }
-    else{
-        btnShowAll.classList.add('d-none');
-    }
+    
     phones.forEach(phone =>{
         const phoneDiv = document.createElement('div');
         phoneDiv.classList.add('col');
